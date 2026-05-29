@@ -7,3 +7,6 @@ Thumbs.db
 
 # Esportazioni locali / dati di test
 manutrack-export.json
+
+# Playbook interno (non pubblicare)
+VENDITA.md

@@ -2,7 +2,7 @@
 
 > Tutto punta a un solo obiettivo in questa fase: **portare l'installatore giusto sulla lista d'attesa** → https://didowastaken.github.io/manutrack/
 >
-> ⚠️ **Prima di pubblicare:** collega Formspree (vedi `VENDITA.md` §9), altrimenti le email non ti arrivano.
+> ⚠️ **Prima di pubblicare:** assicurati che la raccolta email (Formspree) sia attiva, altrimenti le iscrizioni non ti arrivano.
 
 ---
 

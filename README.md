@@ -5,7 +5,7 @@
 SaaS verticale per **piccoli installatori e manutentori** di caldaie, climatizzatori, pompe di calore e impianti frigoriferi. Calcola in automatico le scadenze dei controlli obbligatori per legge, avvisa prima che scadano, genera promemoria per il cliente e rapportini PDF.
 
 🔗 **Demo live:** https://didowastaken.github.io/manutrack/
-📣 **Come validarlo e venderlo:** [`VENDITA.md`](VENDITA.md) · **Materiale pubblicitario pronto:** [`PROMO.md`](PROMO.md) · **Volantino stampabile:** [`volantino.html`](https://didowastaken.github.io/manutrack/volantino.html)
+📣 **Volantino stampabile:** [`volantino.html`](https://didowastaken.github.io/manutrack/volantino.html)
 
 > Demo funzionante **senza backend**: apri `index.html` (sito/prezzi + lista d'attesa) o `app.html` (applicazione). I dati vivono in `localStorage` e all'avvio è precaricato un set di dati demo realistici.
 
