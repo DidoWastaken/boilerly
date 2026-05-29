@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ManuTrack — Volantino (stampa A5)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{ --brand:#12a886; --ink:#12202b; --dim:#5a6b7a; --line:#dfe6ec; --soft:#f4f8f7; }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Inter',system-ui,sans-serif;background:#e9eef2;color:var(--ink);display:flex;flex-direction:column;align-items:center;padding:24px;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .toolbar{margin-bottom:18px}
+    .toolbar button{background:var(--brand);color:#fff;border:0;padding:12px 22px;border-radius:9px;font:inherit;font-weight:700;cursor:pointer}
+    .toolbar span{color:#48586a;font-size:13px;margin-left:10px}
+
+    /* A5 portrait = 148 x 210 mm */
+    .flyer{width:148mm;height:210mm;background:#fff;border-radius:10px;box-shadow:0 10px 40px rgba(0,0,0,.18);
+      padding:14mm 13mm;display:flex;flex-direction:column;overflow:hidden;position:relative}
+    .flyer::before{content:"";position:absolute;top:0;left:0;right:0;height:8mm;background:var(--brand)}
+
+    .brand{display:flex;align-items:center;gap:9px;margin-top:5mm;font-weight:900;font-size:21px}
+    .brand .mk{color:#fff;background:var(--brand);width:34px;height:34px;display:grid;place-items:center;border-radius:8px;font-size:21px}
+
+    h1{font-size:30px;line-height:1.12;letter-spacing:-.8px;margin:9mm 0 4mm;font-weight:900}
+    h1 em{color:var(--brand);font-style:normal}
+    .sub{color:var(--dim);font-size:15px;line-height:1.5;margin-bottom:7mm}
+
+    .benefit{display:flex;gap:11px;align-items:flex-start;margin-bottom:4.5mm}
+    .benefit .ic{flex-shrink:0;width:30px;height:30px;border-radius:8px;background:var(--soft);display:grid;place-items:center;font-size:16px}
+    .benefit b{font-size:15.5px} .benefit p{color:var(--dim);font-size:13px;line-height:1.4;margin-top:1px}
+
+    .cta{margin-top:auto;background:var(--soft);border:1px solid var(--line);border-radius:12px;padding:6mm;display:flex;align-items:center;gap:6mm}
+    .cta .qr{width:34mm;height:34mm;border-radius:8px;background:#fff;flex-shrink:0;border:1px solid var(--line)}
+    .cta .qr img{width:100%;height:100%;display:block;border-radius:8px}
+    .cta .txt b{display:block;font-size:17px;margin-bottom:2mm}
+    .cta .txt .url{color:var(--brand);font-weight:700;font-size:13.5px;word-break:break-all}
+    .cta .txt .gift{display:inline-block;margin-top:3mm;background:var(--brand);color:#fff;font-size:12px;font-weight:700;padding:4px 10px;border-radius:20px}
+
+    .foot{margin-top:4mm;text-align:center;color:#90a0ad;font-size:11px}
+
+    @media print{
+      body{background:#fff;padding:0}
+      .toolbar{display:none}
+      .flyer{box-shadow:none;border-radius:0;width:100%;height:100vh}
+      @page{size:A5;margin:0}
+    }
+  </style>
+</head>
+<body>
+  <div class="toolbar">
+    <button onclick="window.print()">🖨 Stampa il volantino (A5)</button>
+    <span>Lascialo dal grossista o consegnalo di persona.</span>
+  </div>
+
+  <div class="flyer">
+    <div class="brand"><span class="mk">◵</span> ManuTrack</div>
+
+    <h1>Mai più una <em>scadenza</em> dimenticata sui tuoi impianti.</h1>
+    <p class="sub">Per chi fa assistenza a caldaie, climatizzatori e impianti frigo. Tieni sotto controllo i controlli obbligatori di tutti i tuoi clienti — senza Excel.</p>
+
+    <div class="benefit"><span class="ic">⏱️</span><div><b>Scadenze calcolate da sole</b><p>Controllo fumi, F-Gas, libretto impianto: secondo la legge, per ogni impianto.</p></div></div>
+    <div class="benefit"><span class="ic">🔔</span><div><b>Ti avvisa prima che scada</b><p>Ogni mattina sai esattamente chi richiamare. Un intervento in più fatturato.</p></div></div>
+    <div class="benefit"><span class="ic">💬</span><div><b>Promemoria al cliente in 1 clic</b><p>Messaggio già pronto su WhatsApp o email. E rapportino PDF da firmare.</p></div></div>
+
+    <div class="cta">
+      <div class="qr"><img src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&margin=0&data=https://didowastaken.github.io/manutrack/" alt="QR ManuTrack" /></div>
+      <div class="txt">
+        <b>Provalo gratis 👉</b>
+        <span class="url">didowastaken.github.io/manutrack</span>
+        <span class="gift">3 mesi gratis per i primi tester</span>
+      </div>
+    </div>
+
+    <p class="foot">Inquadra il QR con la fotocamera del telefono · Nessuna installazione, si apre nel browser</p>
+  </div>
+</body>
+</html>
