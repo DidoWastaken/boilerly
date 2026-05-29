@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ManuTrack — Le scadenze dei tuoi impianti, sotto controllo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --bg:#0f1419; --panel:#1a232e; --line:#2a3744; --text:#e8eef4; --dim:#93a4b5;
+      --mut:#64758a; --brand:#19c39c; --brand2:#12a886; --danger:#ff5d6c;
+      font-family:'Inter',system-ui,sans-serif;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{background:var(--bg);color:var(--text);-webkit-font-smoothing:antialiased;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+    .btn{display:inline-flex;align-items:center;gap:8px;background:var(--brand);color:#04201a;font-weight:700;padding:13px 24px;border-radius:10px;border:0;font-size:15px;transition:.15s;cursor:pointer}
+    .btn:hover{background:var(--brand2)}
+    .btn--ghost{background:transparent;color:var(--text);border:1px solid var(--line)}
+    .btn--ghost:hover{border-color:var(--mut)}
+
+    /* Nav */
+    nav{display:flex;justify-content:space-between;align-items:center;padding:20px 0}
+    .logo{display:flex;align-items:center;gap:10px;font-weight:900;font-size:20px}
+    .logo span{color:var(--brand);background:rgba(25,195,156,.12);width:36px;height:36px;display:grid;place-items:center;border-radius:9px;font-size:22px}
+
+    /* Hero */
+    .hero{text-align:center;padding:70px 0 60px}
+    .eyebrow{display:inline-block;background:rgba(25,195,156,.12);color:var(--brand);font-weight:700;font-size:13px;padding:6px 14px;border-radius:20px;margin-bottom:22px;letter-spacing:.3px}
+    .hero h1{font-size:clamp(32px,5vw,52px);font-weight:900;letter-spacing:-1.5px;line-height:1.1;max-width:780px;margin:0 auto 20px}
+    .hero h1 em{color:var(--brand);font-style:normal}
+    .hero p{font-size:19px;color:var(--dim);max-width:600px;margin:0 auto 32px}
+    .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+    .hero-note{margin-top:16px;font-size:13px;color:var(--mut)}
+
+    /* Problem */
+    .section{padding:64px 0}
+    .section h2{font-size:32px;font-weight:800;letter-spacing:-.8px;text-align:center;margin-bottom:12px}
+    .section .lead{text-align:center;color:var(--dim);max-width:620px;margin:0 auto 44px;font-size:17px}
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:26px}
+    .card .ico{font-size:28px;margin-bottom:14px}
+    .card h3{font-size:17px;font-weight:700;margin-bottom:8px}
+    .card p{color:var(--dim);font-size:14.5px}
+
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+    .split ul{list-style:none;margin-top:18px}
+    .split li{display:flex;gap:12px;margin-bottom:16px;font-size:15.5px}
+    .split li .chk{color:var(--brand);font-weight:800;flex-shrink:0}
+    .panel-art{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:8px;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+    .panel-art .bar{height:34px;display:flex;align-items:center;gap:6px;padding:0 12px}
+    .panel-art .bar i{width:11px;height:11px;border-radius:50%;background:var(--line)}
+    .mock-row{display:flex;justify-content:space-between;align-items:center;padding:13px 16px;border-top:1px solid var(--line);font-size:13.5px}
+    .mpill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:12px}
+    .mpill.r{background:rgba(255,93,108,.15);color:var(--danger)} .mpill.y{background:rgba(255,176,46,.15);color:#ffb02e} .mpill.g{background:rgba(45,212,167,.13);color:#2dd4a7}
+
+    /* Pricing */
+    .pricing{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;align-items:stretch}
+    .price{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:30px 26px;display:flex;flex-direction:column}
+    .price.feat{border-color:var(--brand);box-shadow:0 0 0 1px var(--brand),0 20px 50px rgba(25,195,156,.12);position:relative}
+    .price.feat .ribbon{position:absolute;top:-13px;left:50%;transform:translateX(-50%);background:var(--brand);color:#04201a;font-size:12px;font-weight:800;padding:4px 14px;border-radius:20px}
+    .price h3{font-size:18px;font-weight:800}
+    .price .who{color:var(--mut);font-size:13.5px;margin-bottom:18px}
+    .price .amt{font-size:40px;font-weight:900;letter-spacing:-1.5px}
+    .price .amt small{font-size:15px;font-weight:600;color:var(--mut)}
+    .price ul{list-style:none;margin:22px 0;flex:1}
+    .price li{font-size:14px;color:var(--dim);padding:7px 0;border-bottom:1px solid var(--line)}
+    .price li b{color:var(--text)}
+
+    .roi{background:linear-gradient(135deg,rgba(25,195,156,.1),rgba(25,195,156,.02));border:1px solid rgba(25,195,156,.25);border-radius:16px;padding:40px;text-align:center;margin-top:40px}
+    .roi h3{font-size:24px;font-weight:800;margin-bottom:10px}
+    .roi p{color:var(--dim);max-width:680px;margin:0 auto;font-size:16px}
+    .roi .big{color:var(--brand);font-weight:900}
+
+    /* Waitlist */
+    .waitlist{background:linear-gradient(135deg,rgba(25,195,156,.12),rgba(25,195,156,.03));border:1px solid rgba(25,195,156,.3);border-radius:18px;padding:48px 40px;text-align:center}
+    .waitlist h2{margin-bottom:10px}
+    .waitlist .lead{margin-bottom:28px}
+    .wl-form{display:flex;gap:10px;max-width:520px;margin:0 auto;flex-wrap:wrap}
+    .wl-form input,.wl-form select{flex:1;min-width:160px;background:var(--bg);border:1px solid var(--line);color:var(--text);padding:13px 15px;border-radius:10px;font-size:15px;font-family:inherit}
+    .wl-form input:focus,.wl-form select:focus{outline:none;border-color:var(--brand)}
+    .wl-form button{flex-basis:100%}
+    .wl-ok{display:none;background:var(--panel);border:1px solid var(--brand);border-radius:12px;padding:24px;max-width:520px;margin:0 auto;font-size:15.5px}
+    .wl-ok.show{display:block}
+    .wl-count{margin-top:18px;font-size:13px;color:var(--mut)}
+
+    footer{border-top:1px solid var(--line);padding:36px 0;text-align:center;color:var(--mut);font-size:13.5px}
+    .disclaimer{max-width:760px;margin:24px auto 0;font-size:12px;color:var(--mut);line-height:1.5}
+
+    @media(max-width:860px){
+      .cards,.pricing{grid-template-columns:1fr}
+      .split{grid-template-columns:1fr;gap:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <nav>
+      <div class="logo"><span>◵</span> ManuTrack</div>
+      <a class="btn btn--ghost" href="app.html">Apri la demo →</a>
+    </nav>
+  </div>
+
+  <header class="hero">
+    <div class="wrap">
+      <span class="eyebrow">Per installatori e manutentori di caldaie, clima e impianti frigo</span>
+      <h1>Mai più una scadenza dimenticata. <em>Mai più una multa.</em></h1>
+      <p>ManuTrack tiene il conto di ogni controllo obbligatorio dei tuoi clienti — controllo fumi, F-Gas, libretto impianto — e ti avvisa <strong>prima</strong> che scada. Basta Excel e post-it.</p>
+      <div class="hero-cta">
+        <a class="btn" href="#waitlist">Richiedi l'accesso anticipato</a>
+        <a class="btn btn--ghost" href="app.html">Guarda la demo →</a>
+      </div>
+      <div class="hero-note">Posti limitati per i primi tester · Nessuna carta di credito</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="wrap">
+      <h2>Il problema costa caro</h2>
+      <p class="lead">Un piccolo manutentore segue 100–300 impianti. Ognuno ha scadenze diverse per legge. Gestirle a mano è una bomba a orologeria.</p>
+      <div class="cards">
+        <div class="card"><div class="ico">📵</div><h3>Scadenze perse</h3><p>Una caldaia non controllata = cliente fuori norma. La responsabilità ricade anche sul manutentore che doveva avvisare.</p></div>
+        <div class="card"><div class="ico">💸</div><h3>Sanzioni reali</h3><p>Le violazioni sull'efficienza energetica e sul registro F-Gas portano sanzioni da centinaia a migliaia di euro per impianto.</p></div>
+        <div class="card"><div class="ico">📉</div><h3>Fatturato che evapora</h3><p>Ogni controllo non richiamato è un intervento da ~110 € che non hai fatturato. Su 200 impianti sono migliaia di euro l'anno persi.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap split">
+      <div>
+        <h2 style="text-align:left">Lui sa già chi richiamare.<br>Tu no.</h2>
+        <ul>
+          <li><span class="chk">✓</span> <span><b>Scadenze calcolate da sole</b> in base a tipo, potenza e normativa (DPR 74/2013, Reg. UE F-Gas).</span></li>
+          <li><span class="chk">✓</span> <span><b>Alert automatici</b> 30 giorni prima: vedi a colpo d'occhio chi è scaduto e chi sta per scadere.</span></li>
+          <li><span class="chk">✓</span> <span><b>Promemoria al cliente</b> via WhatsApp o email, già scritti. Un clic e lo mandi.</span></li>
+          <li><span class="chk">✓</span> <span><b>Rapportino PDF</b> pronto da firmare a fine intervento. Storico sempre tracciato.</span></li>
+        </ul>
+      </div>
+      <div class="panel-art">
+        <div class="bar"><i></i><i></i><i></i></div>
+        <div class="mock-row"><span>🔥 Trattoria Da Beppe · Vaillant</span><span class="mpill r">Scaduta</span></div>
+        <div class="mock-row"><span>🧊 FreshMarket · Cella -20 F-Gas</span><span class="mpill y">7 giorni</span></div>
+        <div class="mock-row"><span>♨️ Hotel Le Colline · Daikin</span><span class="mpill g">In regola</span></div>
+        <div class="mock-row"><span>❄️ Studio Sereni · VRF City</span><span class="mpill g">In regola</span></div>
+        <div class="mock-row" style="color:var(--mut)"><span>+ 138 impianti monitorati</span><span>→</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="prezzi">
+    <div class="wrap">
+      <h2>Prezzi semplici</h2>
+      <p class="lead">Si ripaga al primo intervento recuperato. Mensile, disdici quando vuoi.</p>
+      <div class="pricing">
+        <div class="price">
+          <h3>Artigiano</h3>
+          <div class="who">Tecnico singolo</div>
+          <div class="amt">29€ <small>/ mese</small></div>
+          <ul>
+            <li>Fino a <b>100 impianti</b></li>
+            <li>Scadenze automatiche</li>
+            <li>Promemoria WhatsApp / email</li>
+            <li>Rapportini PDF illimitati</li>
+            <li>1 utente</li>
+          </ul>
+          <a class="btn btn--ghost" href="app.html">Inizia</a>
+        </div>
+        <div class="price feat">
+          <div class="ribbon">Più scelto</div>
+          <h3>Officina</h3>
+          <div class="who">Piccola impresa, 2–5 tecnici</div>
+          <div class="amt">79€ <small>/ mese</small></div>
+          <ul>
+            <li>Fino a <b>500 impianti</b></li>
+            <li>Tutto di Artigiano +</li>
+            <li><b>Promemoria automatici</b> programmati</li>
+            <li>Calendario interventi condiviso</li>
+            <li>Fino a 5 utenti</li>
+          </ul>
+          <a class="btn" href="app.html">Inizia</a>
+        </div>
+        <div class="price">
+          <h3>Manutenzione+</h3>
+          <div class="who">Aziende strutturate</div>
+          <div class="amt">149€ <small>/ mese</small></div>
+          <ul>
+            <li><b>Impianti illimitati</b></li>
+            <li>Tutto di Officina +</li>
+            <li>Export Banca Dati F-Gas</li>
+            <li>API & integrazioni gestionale</li>
+            <li>Utenti illimitati</li>
+          </ul>
+          <a class="btn btn--ghost" href="app.html">Parla con noi</a>
+        </div>
+      </div>
+
+      <div class="roi">
+        <h3>La matematica che convince</h3>
+        <p>Un manutentore con <span class="big">250 impianti</span> che ne dimentica anche solo <span class="big">il 15%</span> all'anno perde ~37 interventi da 110 € = <span class="big">~4.000 € l'anno</span>.<br>ManuTrack Officina costa <span class="big">948 € l'anno</span>. Il ritorno è 4×, prima ancora di contare le multe evitate.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="waitlist">
+    <div class="wrap">
+      <div class="waitlist">
+        <h2>Tra i primi a usarlo</h2>
+        <p class="lead">Stiamo aprendo l'accesso a un gruppo ristretto di installatori e manutentori. Lascia la tua email: ti contattiamo per una prova gratuita e il prezzo bloccato da founder.</p>
+        <form class="wl-form" id="wl-form">
+          <input type="text" name="nome" placeholder="Nome / azienda" autocomplete="organization" />
+          <input type="email" name="email" placeholder="La tua email" required autocomplete="email" />
+          <select name="ruolo" aria-label="Cosa fai">
+            <option value="">Cosa fai?</option>
+            <option>Caldaie / termoidraulica</option>
+            <option>Climatizzazione</option>
+            <option>Refrigerazione / F-Gas</option>
+            <option>Impianti elettrici</option>
+            <option>CAT / multiservizi</option>
+            <option>Altro</option>
+          </select>
+          <button class="btn" type="submit">Richiedi l'accesso anticipato</button>
+        </form>
+        <div class="wl-ok" id="wl-ok">✓ <strong>Ci siamo!</strong> Ti scriviamo a breve per la prova gratuita. Grazie per la fiducia.</div>
+        <div class="wl-count" id="wl-count"></div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <div class="logo" style="justify-content:center;margin-bottom:14px"><span>◵</span> ManuTrack</div>
+      <p>Demo a scopo dimostrativo · Progetto personale di Duccio Lazzeri</p>
+      <p class="disclaimer">Le frequenze dei controlli mostrate seguono i minimi nazionali (DPR 74/2013, Reg. UE 517/2014). Le scadenze del “bollino” e dei controlli possono variare in base alle disposizioni regionali: verificare sempre la normativa locale applicabile. ManuTrack è uno strumento di supporto gestionale e non sostituisce la consulenza tecnica o legale.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* =====================================================================
+     * Lista d'attesa
+     * ---------------------------------------------------------------------
+     * PER ATTIVARE LA RACCOLTA EMAIL VERA (2 minuti, gratis):
+     *  1. Vai su https://formspree.io  ->  crea un form gratuito.
+     *  2. Copia l'endpoint (es. https://formspree.io/f/abcdwxyz).
+     *  3. Incollalo qui sotto in FORMSPREE_ENDPOINT.
+     * Finche' resta vuoto, le richieste vengono salvate solo in questo
+     * browser (localStorage) per non perderle durante i test.
+     * =================================================================== */
+    const FORMSPREE_ENDPOINT = ""; // <-- incolla qui il tuo endpoint Formspree
+
+    const form = document.getElementById('wl-form');
+    const okBox = document.getElementById('wl-ok');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const data = Object.fromEntries(new FormData(form).entries());
+      data.ts = new Date().toISOString();
+
+      // Backup locale (sempre): non perdiamo un lead anche senza Formspree
+      try {
+        const key = 'manutrack:waitlist';
+        const list = JSON.parse(localStorage.getItem(key) || '[]');
+        list.push(data);
+        localStorage.setItem(key, JSON.stringify(list));
+      } catch (_) {}
+
+      // Invio reale, se configurato
+      if (FORMSPREE_ENDPOINT) {
+        try {
+          await fetch(FORMSPREE_ENDPOINT, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+          });
+        } catch (_) { /* il backup locale ci copre comunque */ }
+      }
+
+      form.style.display = 'none';
+      okBox.classList.add('show');
+    });
+  </script>
+</body>
+</html>

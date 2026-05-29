@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <title>ManuTrack — Scadenze impianti sotto controllo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="app" class="app">
+    <!-- ============ SIDEBAR ============ -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="brand__logo">◵</span>
+        <span class="brand__name">ManuTrack</span>
+      </div>
+      <nav class="nav">
+        <button class="nav__item" data-view="dashboard"><span class="nav__ico">▦</span> Dashboard</button>
+        <button class="nav__item" data-view="scadenze"><span class="nav__ico">⏱</span> Scadenze <span id="nav-badge" class="nav__badge"></span></button>
+        <button class="nav__item" data-view="clienti"><span class="nav__ico">👥</span> Clienti</button>
+        <button class="nav__item" data-view="impianti"><span class="nav__ico">⚙</span> Impianti</button>
+        <button class="nav__item" data-view="interventi"><span class="nav__ico">🛠</span> Interventi</button>
+      </nav>
+      <div class="sidebar__foot">
+        <button id="btn-reset" class="link-muted" title="Ripristina i dati demo">↺ Reset demo</button>
+        <button id="btn-export" class="link-muted" title="Esporta il database in JSON">⬇ Esporta dati</button>
+        <a class="link-muted" href="index.html">← Sito / Prezzi</a>
+      </div>
+    </aside>
+
+    <!-- ============ MAIN ============ -->
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1 id="view-title">Dashboard</h1>
+          <p id="view-sub" class="topbar__sub"></p>
+        </div>
+        <div class="topbar__actions" id="topbar-actions"></div>
+      </header>
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <!-- ============ MODAL ============ -->
+  <div id="modal" class="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__card">
+      <div class="modal__head">
+        <h2 id="modal-title">Titolo</h2>
+        <button class="modal__x" data-close aria-label="Chiudi">✕</button>
+      </div>
+      <div id="modal-body" class="modal__body"></div>
+    </div>
+  </div>
+
+  <!-- ============ TOAST ============ -->
+  <div id="toast" class="toast" hidden></div>
+
+  <script src="js/compliance.js"></script>
+  <script src="js/store.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
